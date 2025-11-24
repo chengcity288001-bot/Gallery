@@ -1,256 +1,457 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>劉沛妤 紀錄 - Portaly 風格</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>劉沛妤 紀錄 - 成長紀錄</title>
 
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Swiper CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
 
-    <style>
-        html {
-            scroll-behavior: smooth; /* 點選導覽列時平滑捲動 */
-        }
+  <!-- 字型 -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+    rel="stylesheet"
+  />
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            background-color: #0d1117;
-            color: #f0f6fc;
-        }
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      line-height: 1.6;
+      background-color: #0d1117;
+      color: #f0f6fc;
+    }
+    .section-wrap {
+      padding: 4rem 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-        .section-padding {
-            padding: 4rem 1.5rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+    /* 主按鈕樣式 */
+    .btn-primary {
+      padding: 0.75rem 2rem;
+      background-color: #dc2626;
+      color: #ffffff;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background-color: #b91c1c;
+    }
+    #contact button.btn-primary {
+      display: block;
+    }
 
-        .btn-primary {
-            padding: 0.75rem 2rem;
-            background-color: #dc2626;
-            color: #ffffff;
-            font-weight: 600;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            transition: background-color 0.3s;
-            display: inline-block;
-            text-decoration: none;
-        }
-        .btn-primary:hover {
-            background-color: #b91c1c;
-        }
-        #contact button.btn-primary {
-            display: block;
-        }
+    /* Swiper 卡片 */
+    .swiper-card {
+      background-color: #161b22;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+    .swiper-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
 
-        .swiper-card {
-            background-color: #161b22;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            text-align: center;
-        }
-
-        .swiper-card img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-    </style>
+    /* Hero 淡入動畫 */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in-up {
+      animation: fadeInUp 0.9s ease-out forwards;
+    }
+  </style>
 </head>
 <body>
+  <!-- 導覽列 -->
+  <nav
+    class="sticky top-0 z-50 bg-gray-900/95 shadow-lg backdrop-blur-sm border-b border-gray-800"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a
+          href="#hero"
+          class="text-xl font-bold text-red-500 tracking-wider whitespace-nowrap"
+        >
+          劉沛妤 紀錄
+        </a>
+        <div class="flex space-x-4 text-sm font-medium">
+          <a
+            href="#portfolio"
+            class="text-gray-300 hover:text-red-400 px-3 py-2 rounded-md transition"
+            >作品集</a
+          >
+          <a
+            href="#series"
+            class="text-gray-300 hover:text-red-400 px-3 py-2 rounded-md transition"
+            >主題系列</a
+          >
+          <a
+            href="#about"
+            class="text-gray-300 hover:text-red-400 px-3 py-2 rounded-md transition"
+            >關於我</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-300 hover:text-red-400 px-3 py-2 rounded-md transition"
+            >聯絡</a
+          >
+        </div>
+      </div>
+    </div>
+  </nav>
 
-    <!-- 導覽列 -->
-    <nav class="sticky top-0 z-50 bg-gray-900 bg-opacity-95 shadow-lg backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="#hero" class="text-xl font-bold text-red-500 tracking-wider">劉沛妤 紀錄</a>
-                <div class="flex space-x-4">
-                    <a href="#portfolio" class="text-gray-300 hover:text-red-400 px-3 py-2 rounded-md text-sm font-medium transition">作品集</a>
-                    <a href="#about" class="text-gray-300 hover:text-red-400 px-3 py-2 rounded-md text-sm font-medium transition">關於我</a>
-                    <a href="#contact" class="text-gray-300 hover:text-red-400 px-3 py-2 rounded-md text-sm font-medium transition">聯絡</a>
-                </div>
+  <!-- Hero 區 -->
+  <header
+    id="hero"
+    class="relative flex flex-col items-center justify-center min-h-screen"
+  >
+    <!-- 背景 -->
+    <div class="absolute inset-0">
+      <img
+        src="IMG_0150.JPG"
+        alt="背景圖片"
+        class="w-full h-full object-cover opacity-50"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-black opacity-60"></div>
+    </div>
+
+    <!-- 內容 -->
+    <div class="relative section-wrap text-center fade-in-up">
+      <img
+        src="IMG_0237.JPG"
+        alt="頭像"
+        class="w-32 h-32 object-cover rounded-full mx-auto mb-4 border-4 border-red-500 shadow-xl"
+        loading="lazy"
+      />
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-2">
+        劉沛妤
+      </h1>
+      <p class="text-lg sm:text-2xl text-gray-300 font-light mb-6">
+        成長紀錄 ｜ 捕捉瞬間的永恆
+      </p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="#portfolio" class="btn-primary"> 看精選作品 </a>
+        <a
+          href="#series"
+          class="px-5 py-2 rounded-lg border border-gray-500/60 text-sm text-gray-200 hover:bg-gray-800/70 transition"
+        >
+          看主題系列
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 精選作品：Swiper 輪播 -->
+  <section id="portfolio" class="section-wrap">
+    <h2 class="text-3xl font-bold text-white mb-3 text-center">
+      精選作品集（輪播）
+    </h2>
+    <p class="text-center text-gray-400 mb-6 text-sm">
+      往左往右滑動，看看最近最喜歡的幾個瞬間。
+    </p>
+
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="swiper-card">
+            <img src="IMG_3945.JPG" alt="人小鬼大" loading="lazy" />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-1 text-red-400">人小鬼大</h3>
+              <p class="text-gray-400 text-sm mb-3">
+                系列：城市攝影 ｜ 2024
+              </p>
+              <!-- 之後可以換成外部相簿連結 -->
+              <a href="#" class="btn-primary text-sm">前往作品集</a>
             </div>
+          </div>
         </div>
-    </nav>
 
-    <!-- 首頁 Hero 區塊 -->
-    <header id="hero" class="relative section-padding flex flex-col items-center justify-center min-h-screen">
-        <div class="absolute inset-0">
-            <img src="IMG_0150.JPG" alt="背景圖片" class="w-full h-full object-cover opacity-50" loading="lazy">
-            <div class="absolute inset-0 bg-black opacity-60"></div>
-        </div>
-        <div class="relative text-center max-w-4xl px-4">
-            <img src="IMG_0237.JPG" alt="頭像" class="w-32 h-32 object-cover rounded-full mx-auto mb-4 border-4 border-red-500 shadow-xl" loading="lazy">
-            <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight mb-2">劉沛妤</h1>
-            <p class="text-xl sm:text-2xl text-gray-300 font-light">成長紀錄｜捕捉瞬間的永恆</p>
-        </div>
-    </header>
-
-    <!-- 作品集輪播 -->
-    <section id="portfolio" class="section-padding">
-        <h2 class="text-3xl font-bold text-white mb-6 text-center">精選作品集（輪播）</h2>
-
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-
-                <div class="swiper-slide">
-                    <div class="swiper-card">
-                        <img src="IMG_3945.JPG" alt="人小鬼大" loading="lazy">
-                        <div class="p-4">
-                            <h3 class="text-xl font-semibold mb-1 text-red-400">人小鬼大</h3>
-                            <p class="text-gray-400 text-sm">系列：城市攝影 | 2024年</p>
-                            <a href="#contact" class="btn-primary mt-3">邀請拍攝</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="swiper-card">
-                        <img src="IMG_0049.JPG" alt="寧靜肖像" loading="lazy">
-                        <div class="p-4">
-                            <h3 class="text-xl font-semibold mb-1 text-red-400">寧靜肖像</h3>
-                            <p class="text-gray-400 text-sm">系列：人像攝影 | 2023年</p>
-                            <a href="#contact" class="btn-primary mt-3">預約人像</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="swiper-card">
-                        <img src="IMG_5648.JPG" alt="生病好累" loading="lazy">
-                        <div class="p-4">
-                            <h3 class="text-xl font-semibold mb-1 text-red-400">生病好累</h3>
-                            <p class="text-gray-400 text-sm">系列：生活紀實 | 2024年</p>
-                            <a href="#contact" class="btn-primary mt-3">分享故事</a>
-                        </div>
-                    </div>
-                </div>
-
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="swiper-card">
+            <img src="IMG_0049.JPG" alt="寧靜肖像" loading="lazy" />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-1 text-red-400">寧靜肖像</h3>
+              <p class="text-gray-400 text-sm mb-3">
+                系列：人像攝影 ｜ 2023
+              </p>
+              <a href="#" class="btn-primary text-sm">前往相簿</a>
             </div>
-
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next text-red-500"></div>
-            <div class="swiper-button-prev text-red-500"></div>
+          </div>
         </div>
-    </section>
 
-    <!-- 關於我 -->
-    <section id="about" class="section-padding bg-gray-800">
-        <h2 class="text-3xl font-bold text-white mb-6 text-center">關於劉沛妤</h2>
-        <p class="text-gray-300 leading-relaxed">
-            您好，我是劉沛妤。自從第一次拿起相機以來，我就被光線和構圖的無限可能性所吸引。對我來說，攝影不僅是捕捉畫面，更是傳遞情感、凍結時間、以及與世界溝通的方式。
-            我的專長領域包括風景、人文和抽象攝影。我熱衷於探索未知的角落，並將那些肉眼可見卻難以言喻的美好，透過鏡頭轉化為永恆的視覺藝術。
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="swiper-card">
+            <img src="IMG_5648.JPG" alt="生病好累" loading="lazy" />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-1 text-red-400">生病好累</h3>
+              <p class="text-gray-400 text-sm mb-3">
+                系列：日常紀錄 ｜ 2024
+              </p>
+              <a href="#" class="btn-primary text-sm">查看細節</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Swiper 控制元件 -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next text-red-500"></div>
+      <div class="swiper-button-prev text-red-500"></div>
+    </div>
+  </section>
+
+  <!-- 主題系列卡片：模仿 Portaly 一塊一塊往下排 -->
+  <section id="series" class="section-wrap space-y-8">
+    <h2 class="text-3xl font-bold text-white mb-4 text-center">主題系列</h2>
+
+    <!-- 系列 1：成長日記 -->
+    <article
+      class="bg-gray-900/80 rounded-2xl overflow-hidden shadow-xl border border-gray-800"
+    >
+      <img
+        src="IMG_0112.JPG"
+        alt="成長日記"
+        class="w-full h-56 object-cover"
+        loading="lazy"
+      />
+      <div class="p-6 space-y-3">
+        <h3 class="text-2xl font-semibold text-red-400">成長日記</h3>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          從出生、翻身、笑出聲，到第一次生病。這些看起來「很日常」的小瞬間，
+          過了就不會再回來。這個系列想把每一次的哭、笑和迷惑都留下來。
         </p>
-    </section>
-
-    <!-- 聯絡表單 -->
-    <section id="contact" class="section-padding">
-        <h2 class="text-3xl font-bold text-white mb-6 text-center">與我聯繫</h2>
-        <div class="max-w-lg mx-auto bg-gray-900 p-8 rounded-xl shadow-2xl border border-gray-700">
-            <form id="contact-form">
-                <div class="mb-5">
-                    <label for="name" class="block text-sm font-medium text-gray-300 mb-2">姓名</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-red-500 focus:border-red-500 text-white"
-                        placeholder="請輸入您的姓名"
-                        required
-                    >
-                </div>
-                <div class="mb-5">
-                    <label for="email" class="block text-sm font-medium text-gray-300 mb-2">電子郵件</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-red-500 focus:border-red-500 text-white"
-                        placeholder="請輸入您的電子郵件"
-                        required
-                    >
-                </div>
-                <div class="mb-6">
-                    <label for="message" class="block text-sm font-medium text-gray-300 mb-2">訊息</label>
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="4"
-                        class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-red-500 focus:border-red-500 text-white"
-                        placeholder="您想說些什麼？"
-                        required
-                    ></textarea>
-                </div>
-                <button type="submit" class="w-full btn-primary">
-                    傳送訊息
-                </button>
-            </form>
-            <div id="form-message" class="mt-4 text-center text-red-400 font-medium hidden"></div>
+        <div class="flex flex-wrap gap-2 text-xs text-gray-400">
+          <span
+            class="px-2 py-1 rounded-full border border-gray-600/70 bg-gray-800/70"
+            >家庭紀錄</span
+          >
+          <span
+            class="px-2 py-1 rounded-full border border-gray-600/70 bg-gray-800/70"
+            >日常瞬間</span
+          >
         </div>
-    </section>
+      </div>
+    </article>
 
-    <!-- 頁尾 -->
-    <footer class="bg-gray-900 py-8 mt-12 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-            <p class="text-lg font-semibold text-red-400 mb-2">劉沛妤 紀錄</p>
-            <p class="text-sm">版權所有 &copy; 2025. All Rights Reserved.</p>
+    <!-- 系列 2：小小表情包 -->
+    <article
+      class="bg-gray-900/80 rounded-2xl overflow-hidden shadow-xl border border-gray-800"
+    >
+      <img
+        src="IMG_0084.JPG"
+        alt="開開心心"
+        class="w-full h-56 object-cover"
+        loading="lazy"
+      />
+      <div class="p-6 space-y-3">
+        <h3 class="text-2xl font-semibold text-red-400">小小表情包</h3>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          睡得東倒西歪、吃飯吃到滿臉、突然皺眉、莫名大笑──
+          把這些「表情瞬間」收集起來，就是專屬於她的表情貼圖庫。
+        </p>
+        <div class="flex flex-wrap gap-2 text-xs text-gray-400">
+          <span
+            class="px-2 py-1 rounded-full border border-gray-600/70 bg-gray-800/70"
+            >人像攝影</span
+          >
+          <span
+            class="px-2 py-1 rounded-full border border-gray-600/70 bg-gray-800/70"
+            >情緒捕捉</span
+          >
         </div>
-    </footer>
+      </div>
+    </article>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- 系列 3：家以外的世界 -->
+    <article
+      class="bg-gray-900/80 rounded-2xl overflow-hidden shadow-xl border border-gray-800"
+    >
+      <img
+        src="IMG_3933.JPG"
+        alt="街頭故事"
+        class="w-full h-56 object-cover"
+        loading="lazy"
+      />
+      <div class="p-6 space-y-3">
+        <h3 class="text-2xl font-semibold text-red-400">家以外的世界</h3>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          公園、街角、捷運站、夜晚的城市燈光——
+          當她慢慢開始走路，世界也跟著打開。這個系列記錄她第一次踏出的每一小步。
+        </p>
+        <div class="flex flex-wrap gap-2 text-xs text-gray-400">
+          <span
+            class="px-2 py-1 rounded-full border border-gray-600/70 bg-gray-800/70"
+            >外出記錄</span
+          >
+          <span
+            class="px-2 py-1 rounded-full border border-gray-600/70 bg-gray-800/70"
+            >街頭人文</span
+          >
+        </div>
+      </div>
+    </article>
+  </section>
 
-    <script>
-        // 初始化輪播
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                },
-            },
-        });
+  <!-- 關於我 -->
+  <section id="about" class="section-wrap bg-gray-800/80 rounded-2xl mt-10">
+    <h2 class="text-3xl font-bold text-white mb-4 text-center">關於劉沛妤</h2>
+    <p class="text-gray-300 leading-relaxed text-sm sm:text-base mb-3">
+      您好，我是劉沛妤。自從第一次拿起相機以來，我就被光線和構圖的無限可能性所吸引。
+      對我來說，攝影不僅是捕捉畫面，更是傳遞情感、凍結時間、以及與世界溝通的方式。
+    </p>
+    <p class="text-gray-300 leading-relaxed text-sm sm:text-base mb-3">
+      現在的主角換成了「她」，每一次按下快門，都是為了讓未來的她，
+      可以回頭看見曾經這麼小、這麼認真地長大。
+    </p>
+    <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+      希望這個小小網站，可以成為我們一家人的「時間膠囊」，
+      也歡迎你一起來翻開這本成長相冊。
+    </p>
+  </section>
 
-        // 聯絡表單處理（加保護，避免未來刪掉表單時報錯）
-        const form = document.getElementById('contact-form');
-        const messageDiv = document.getElementById('form-message');
+  <!-- 聯絡表單 -->
+  <section id="contact" class="section-wrap">
+    <h2 class="text-3xl font-bold text-white mb-6 text-center">與我聯繫</h2>
+    <div
+      class="max-w-lg mx-auto bg-gray-900 p-8 rounded-xl shadow-2xl border border-gray-700"
+    >
+      <form id="contact-form">
+        <div class="mb-5">
+          <label
+            for="name"
+            class="block text-sm font-medium text-gray-300 mb-2"
+            >姓名</label
+          >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-red-500 focus:border-red-500 text-white"
+            placeholder="請輸入您的姓名"
+            required
+          />
+        </div>
+        <div class="mb-5">
+          <label
+            for="email"
+            class="block text-sm font-medium text-gray-300 mb-2"
+            >電子郵件</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-red-500 focus:border-red-500 text-white"
+            placeholder="請輸入您的電子郵件"
+            required
+          />
+        </div>
+        <div class="mb-6">
+          <label
+            for="message"
+            class="block text-sm font-medium text-gray-300 mb-2"
+            >訊息</label
+          >
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-red-500 focus:border-red-500 text-white"
+            placeholder="您想說些什麼？"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="w-full btn-primary">
+          傳送訊息
+        </button>
+      </form>
+      <div
+        id="form-message"
+        class="mt-4 text-center text-red-400 font-medium hidden"
+      ></div>
+    </div>
+  </section>
 
-        if (form && messageDiv) {
-            form.addEventListener('submit', function(event) {
-                event.preventDefault();
-                setTimeout(() => {
-                    messageDiv.textContent = '感謝您的訊息，我會盡快與您聯繫！';
-                    messageDiv.classList.remove('hidden');
-                    messageDiv.classList.add('text-green-400');
-                    form.reset();
-                    setTimeout(() => {
-                        messageDiv.classList.add('hidden');
-                        messageDiv.classList.remove('text-green-400');
-                        messageDiv.textContent = '';
-                    }, 10000);
-                }, 500);
-            });
-        }
-    </script>
+  <!-- 頁尾 -->
+  <footer
+    class="bg-gray-900 py-8 mt-12 border-t border-gray-800 text-center text-gray-400"
+  >
+    <p class="text-lg font-semibold text-red-400 mb-2">劉沛妤 紀錄</p>
+    <p class="text-sm">版權所有 &copy; 2025. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    // Swiper 初始化
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
+    });
+
+    // 聯絡表單簡易提示
+    const form = document.getElementById("contact-form");
+    const messageDiv = document.getElementById("form-message");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      setTimeout(() => {
+        messageDiv.textContent = "感謝您的訊息，我會盡快與您聯繫！";
+        messageDiv.classList.remove("hidden");
+        messageDiv.classList.add("text-green-400");
+        form.reset();
+        setTimeout(() => {
+          messageDiv.classList.add("hidden");
+          messageDiv.classList.remove("text-green-400");
+          messageDiv.textContent = "";
+        }, 10000);
+      }, 500);
+    });
+  </script>
 </body>
 </html>
